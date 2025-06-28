@@ -1,0 +1,32 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+}
+.bg-grid{
+    background-image: url(../src/assets/bg-grid.png);
+    background-size: cover;
+}
+.sg-text{
+    font-family: 'seg';
+}
+.bgIntro{
+background-image: url(./assets/IntroBg.png);
+background-size: cover;
+}
+@media screen and (max-width: 350px) {
+    .arrowIcon {
+        display: none;
+    }
+}
+@media screen and (max-width: 450px) {
+    .sponsorCardContainer{
+        width: 100px !important;
+        height: 100px !important;
+        margin: -10px !important;
+    }
+}

@@ -1,0 +1,131 @@
+[
+    {
+        "id": 12,
+        "name": "Pinnacle",
+        "category": "Managerial",
+        "about": "If you have a unique idea that sets you on the path to becoming a successful entrepreneur, then Pinnacle is the event for you. As one of the most prestigious events of Infotsav, Pinnacle provides a platform for innovative ideas, offering the spark needed to ignite entrepreneurial success. This flagship event of Infotsav'24 attracts students from the best B-schools and engineering colleges across the country.",
+        "fee": {
+            "phase_1": 0,
+            "phase_2": "{fees}"
+        },
+        "date": "2024-10-23",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1724434496/pinnacle_rwrm5f.jpg",
+        "url": "https://unstop.com/competitions/pinnacle-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-1140571",
+        "prize": "30k",
+        "contact": [
+            {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Sambodhi Roy",
+                "phone": "7439811569",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Bhudev Bhanpuriya",
+                "phone": "8823085185",
+                "email": "infotsav@iiitm.ac.in"
+            }
+
+        ],
+        "description": {
+            "overview": "Pinnacle is a premier event where teams present their innovative business ideas to a panel of judges. The event is split into two phases: an online submission of an executive summary and an on-campus presentation of the final business plans.",
+            "eligibility": [
+                "Open to teams from any recognized B-school or engineering college.",
+                "Teams can consist of students from different colleges.",
+                "All participants must present valid ID cards.",
+                "There is no limit on the number of teams per college."
+            ],
+            "team_specifications": [
+                "Teams may consist of 1 to 3 members.",
+                "Cross-institute/organization teams are allowed.",
+                "Each team must have a designated presenter."
+            ],
+            "submission_details": [
+                "Phase 1 submissions must be in .PDF format, with a maximum of 5 pages (excluding the cover page).",
+                "Executive Summary should be sent to {custom mail} with the subject 'PINNACLE, Infotsav'24 ([Team name]).'",
+                "Entries submitted after the deadline will not be considered."
+            ],
+            "presentation_rules": [
+                "Shortlisted teams will present their final business plans on campus.",
+                "Each team will have 10 minutes (8 minutes for presentation and 2 minutes for binding).",
+                "Teams must use Microsoft PowerPoint for presentations.",
+                "A registration fee of {fees} per team is required for Phase 2.",
+                "Any act of plagiarism will result in disqualification.",
+                "The decisions of the judges and organizers are final and binding."
+            ],
+            "event_structure": {
+                "mode": "Offline",
+                "phase_1": "Online submission of Executive Summary.",
+                "phase_2": "On-campus presentation of Final Business Plans."
+            }
+        }
+    },
+    {
+        "id": 13,
+        "name": "Sameeksha",
+        "category": "Managerial",
+        "about": "The Annual Paper Presentation Conference, Sameeksha, is designed to encourage students to prepare and present meaningful papers and presentations on a wide range of topics, both technical and non-technical. This event offers students valuable early experience in researching, writing, and presenting ideas related to their areas of interest and expertise.",
+        "fee": 0,
+        "date": "2024-10-25",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1725214532/sameeksha_tgzxgp.jpg",
+        "url": "https://unstop.com/competitions/sameeksha-infotsav24-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-abv-iii-1146126",
+        "prize": "15k",
+        "contact": [
+            {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Sameeksha is a platform for students to present their research papers on a range of topics. Participants gain experience in academic research and presentation.",
+            "eligibility": [
+                "Open to school students, undergraduates, postgraduates, and research scholars.",
+                "A team can have a maximum of 2 participants.",
+                "Participants from different institutions are allowed, but multiple entries from the same team are not permitted."
+            ],
+            "presentation_requirements": [
+                "The presentation should be based on one of the suggested topics or other topics within the domain.",
+                "The abstract should not exceed 1 page, and the paper should not exceed 15 pages, with a word count of 1000-3000 including all figures and tables.",
+                "A separate title page with the authors' names and identification is required.",
+                "The oral presentation must be a maximum of 12 minutes, including 2 minutes for questions.",
+                "Participants must bring their college ID card, 2 hard copies of the submitted paper, and the PowerPoint presentation on the event day.",
+                "Soft copies of the submitted paper and PowerPoint presentations must be in pdf and ppt format."
+            ],
+            "submission_details": [
+                "Participants should email their abstract, paper, and PowerPoint presentation to {custom_email}.",
+                "The email should include the title and theme of the paper, names of both authors (including their institutions), contact numbers of both authors, and email IDs.",
+                "The last day to submit the soft copy of your report (via email) is seven days prior to the presentation day. The soft copy will be evaluated for shortlisting, and participants will be notified.",
+                "The abstract email should contain the abstract, references, email ID, and mobile number."
+            ],
+            "general_guidelines": [
+                "The judges' decision will be final, and no arguments or appeals will be entertained.",
+                "Submitted papers will become the property of Sameeksha."
+            ]
+        }
+    },
+    {
+        "id": 14,
+        "name": "Brandsome",
+        "category": "Managerial",
+        "about":"Do you have a knack for innovative advertising? Are you brimming with marketing ideas and eager to showcase your talent? Brandsome is the event where you can test your creativity and convincing skills by marketing a wacky or non-existent product. Participants are required to develop an offbeat product concept that could potentially revolutionize people's lives. The challenge lies not only in creating the product but also in promoting it as an influential brand. Show off your imagination and creativity by zapping everyone's minds with your unique product ideas and extraordinary marketing skills.",
+        "fee": 0,
+        "date": "2024-10-25",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1725832738/brandsome_eit9bd.jpg",
+        "url": "https://unstop.com/competitions/brandsome-infotsav24-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-1148120",
+        "prize": "15k",
+        "contact": [
+            {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Do you have a knack for innovative advertising? Are you brimming with marketing ideas and eager to showcase your talent? Brandsome is the event where you can test your creativity and convincing skills by marketing a wacky or non-existent product. Participants are required to develop an offbeat product concept that could potentially revolutionize people's lives. The challenge lies not only in creating the product but also in promoting it as an influential brand. Show off your imagination and creativity by zapping everyone's minds with your unique product ideas and extraordinary marketing skills."
+        }
+    }
+]

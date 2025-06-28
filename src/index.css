@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "pixelhugger_font";
+  src: url("/fonts/pixelhugger_font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PixelifySans-Bold";
+  src: url("/fonts/PixelifySans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "seg";
+  src: url("./assets/fonts/SG04.ttf");
+}
+
+@font-face {
+  font-family: "PixelifySans-Medium";
+  src: url("/fonts/PixelifySans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PixelifySans-Regular";
+  src: url("/fonts/PixelifySans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PixelifySans-SemiBold";
+  src: url("/fonts/PixelifySans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PixelifySans-VariableFont_wght";
+  src: url("/fonts/PixelifySans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 700;
+  /* Variable weight range */
+  font-style: normal;
+}
+
+.urbanist-unique {
+  @apply font-urbanist font-thin not-italic;
+}
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
