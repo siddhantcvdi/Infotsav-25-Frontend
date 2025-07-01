@@ -1,3 +1,5 @@
+// 2025 design implemented
+
 import { useEffect, useRef } from 'react';
 import ParticlesBackground from '../ParticlesBackground';
 import { gsap } from 'gsap';

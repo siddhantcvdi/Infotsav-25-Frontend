@@ -8,7 +8,7 @@ export const SponsorsComponent = () => {
             </h1>
             <div className="w-full mt-20 items-center">
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-12 justify-center w-full">
-                    {currentSponsers.map((sponsor: any, index: any) => (
+                    {currentSponsers.map((sponsor: {src: string, alt: string}, index: number) => (
                         <div
                             key={index}
                             className="flex justify-center items-center">
@@ -28,7 +28,7 @@ export const SponsorsComponent = () => {
 
             <div className="w-full mt-20 items-center">
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-12 justify-center w-full">
-                    {sponsorPage.map((sponsor: any, index: any) => (
+                    {sponsorPage.map((sponsor: {src: string}, index: number) => (
                         <div
                             key={index}
                             className="flex justify-center items-center">

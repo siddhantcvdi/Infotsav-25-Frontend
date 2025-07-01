@@ -1,12 +1,12 @@
-// import React from 'react'
-import ComingSoon from '../Components/ComingSoon'
+// // import React from 'react'
+// import ComingSoon from '../Components/ComingSoon'
 
-function MeetTheTeam() {
-    return (
-        <div>
-            <ComingSoon />
-        </div>
-    )
-}
+// function MeetTheTeam() {
+//     return (
+//         <div>
+//             <ComingSoon />
+//         </div>
+//     )
+// }
 
-export default MeetTheTeam
+// export default MeetTheTeam

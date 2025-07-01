@@ -4,16 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import MainLayout from "./MainLayout";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
-import ContactUs from "./Pages/ContactUs";
 import Events from "./Pages/Events";
-import Login from "./Pages/Login";
-import MeetTheTeam from "./Pages/MeetTheTeam";
-import Sponsors from "./Pages/Sponsors";
 import NotFound from "./Pages/NotFound";
-import EventDetails from "./Pages/EventDetails.tsx";
-import Dashboard from "./Pages/Dashboard.tsx";
-import CampusAmba from "./Pages/CampusAmba.tsx";
 
 import "./App.css";
 
@@ -23,18 +15,18 @@ function App() {
             <Routes>
                 <Route element={<MainLayout />}>
                     <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<ContactUs />} />
+                    <Route path="/about" element={<Home />} />
+                    <Route path="/contact" element={<Home />} />
                     <Route path="/events" element={<Events />} />
                     <Route
                         path="/eventdetails/:category/:id"
-                        element={<EventDetails />}
+                        element={<Home />}
                     />
-                    <Route path="/register" element={<Login />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/meet-the-team" element={<MeetTheTeam />} />
-                    <Route path="/sponsors" element={<Sponsors />} />
-                    <Route path="/campus-ambassador" element={<CampusAmba />} />
+                    <Route path="/register" element={<Home />} />
+                    <Route path="/dashboard" element={<Home />} />
+                    <Route path="/meet-the-team" element={<Home />} />
+                    <Route path="/sponsors" element={<Home />} />
+                    <Route path="/campus-ambassador" element={<Home />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>

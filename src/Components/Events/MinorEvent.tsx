@@ -1,18 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import TechnicalEvents from "../../constants/EventData/TechnicalEvents.json";
-import ManagerialEvents from "../../constants/EventData/ManagerialEvents.json";
-import RoboticsEvents from "../../constants/EventData/RoboticsEvents.json";
-import OnlineEvents from "../../constants/EventData/OtherEvents.json";
-
-type EventType = {
-    name: string;
-    url: string;
-    about: string;
-    category: string;
-    id: number;
-    img: string;
-    prize: string;
-};
 
 interface MinorEventProps {
     category: string;
@@ -20,23 +6,7 @@ interface MinorEventProps {
 
 export default function MinorEvent({ category }: MinorEventProps) {
     // Choose the event data based on the category
-    let eventsJson: EventType[] = [];
-    switch (category) {
-        case "Technical":
-            eventsJson = TechnicalEvents;
-            break;
-        case "Managerial":
-            eventsJson = ManagerialEvents;
-            break;
-        case "Robotics":
-            eventsJson = RoboticsEvents;
-            break;
-        case "Online":
-            eventsJson = OnlineEvents;
-            break;
-        default:
-            eventsJson = TechnicalEvents;
-    }
+   
 
     return (
         <div className="mx-auto w-9/12 mt-10">
@@ -44,17 +14,7 @@ export default function MinorEvent({ category }: MinorEventProps) {
             <div className="my-6">
                 <p className="inline-flex text-4xl my-3">{category}</p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 mx-auto gap-6">
-                    {eventsJson.map((event: EventType, index: number) => (
-                        <EventBox
-                            key={index}
-                            name={event.name}
-                            id={event.id}
-                            about={event.about}
-                            category={category}
-                            img={event.img}
-                            prize={event.prize}
-                        />
-                    ))}
+                   Event Box
                 </div>
             </div>
         </div>
