@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/benguiat'); /* or wherever you've hosted the font */
 * {
     scroll-behavior: smooth;
     margin: 0;
@@ -30,3 +31,36 @@ background-size: cover;
         margin: -10px !important;
     }
 }
+/* Hollow neon text: transparent fill + red stroke + multi‑layer glow */
+.neon-text {
+    font-family: 'Benguiat', serif;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ff1100;
+    text-shadow:
+      0 0 4px #ff1100,
+      0 0 16px #ff1100,
+      0 0 32px rgba(255,17,0,0.6),
+      0 0 64px rgba(255,17,0,0.4);
+  }
+  
+  /* For per‑letter transforms and GSAP control */
+  .neon-letter {
+    display: inline-block;
+    will-change: transform;
+  }
+  /* ensure the image can rotate in 3D */
+.will-change-transform {
+    will-change: transform;
+  }
+  
+  /* Strong neon glow around the image */
+.neon-img {
+    filter:
+      drop-shadow(0 0 8px #ff1100)
+      drop-shadow(0 0 16px #ff1100)
+      drop-shadow(0 0 32px rgba(255,17,0,0.6))
+      drop-shadow(0 0 64px rgba(255,17,0,0.4));
+    will-change: transform, filter;
+  }
+  

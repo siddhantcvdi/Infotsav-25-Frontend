@@ -52,7 +52,8 @@ function Login() {
         password: "",
     });
 
-    const handleRegistrationSubmit = async (e: any) => {
+    
+    const handleRegistrationSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const { name, email, collegeName, contactNumber, password } =
             regformData;
@@ -120,14 +121,14 @@ function Login() {
         }
     };
 
-    const handleInputChange = (e: any) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setRegFormData({
             ...regformData,
             [e.target.name]: e.target.value,
         });
     };
 
-    const handleLoginSubmit = async (e: any) => {
+    const handleLoginSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const { email, password } = loginFormData;
 
@@ -164,14 +165,14 @@ function Login() {
         }
     };
 
-    const handleLoginChange = (e: any) => {
+    const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLoginFormData({
             ...loginFormData,
             [e.target.name]: e.target.value,
         });
     };
 
-    const toggleForm = (event: any) => {
+    const toggleForm = (event: React.FormEvent) => {
         event.preventDefault();
         setIsRegistering(!isRegistering);
     };

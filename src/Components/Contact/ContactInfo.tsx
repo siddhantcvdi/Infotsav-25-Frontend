@@ -1,6 +1,8 @@
 import contacts from "../../constants/contacts.json";
 
-type ContactInfoProps = {};
+type ContactInfoProps = {
+    contacts: typeof contacts;
+};
 
 const ContactInfo = ({ }: ContactInfoProps) => {
   return (

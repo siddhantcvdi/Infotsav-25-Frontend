@@ -13,9 +13,9 @@ import Sponsors from "./Pages/Sponsors";
 import NotFound from "./Pages/NotFound";
 import EventDetails from "./Pages/EventDetails.tsx";
 import Dashboard from "./Pages/Dashboard.tsx";
+import CampusAmba from "./Pages/CampusAmba.tsx";
 
 import "./App.css";
-import CampusAmba from "./Pages/CampusAmba.tsx";
 
 function App() {
     return (
