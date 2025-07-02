@@ -1,6 +1,6 @@
 // import React from 'react'
 //import TabComponent from "../Components/EventDescription/TabComponent";
-import ParticlesBackground from "../Components/ParticlesBackground";
+// import ParticlesBackground from "../Components/ParticlesBackground";
 
 import { useParams } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function EventDetails() {
 
     return (
         <div>
-            <ParticlesBackground />
+            {/* <ParticlesBackground /> */}
             EventDetails {category} {id}
         </div>
     );

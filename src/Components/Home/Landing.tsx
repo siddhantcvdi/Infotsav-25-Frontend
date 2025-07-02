@@ -1,9 +1,7 @@
-// 2025 design implemented
-
 import { useEffect, useRef } from 'react';
-import ParticlesBackground from '../ParticlesBackground';
+// import ParticlesBackground from '../ParticlesBackground';
 import { gsap } from 'gsap';
-import Infotsav2025LandingPage from '../../assets/2025/LandingPage/Infotsav2025LandingPage4.png';
+
 
 const Landing: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -23,11 +21,22 @@ const Landing: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  const onMouseEnter = () => {
+  const onMouseEnter = (e) => {
     if (!imgRef.current) return;
+    const rect = imgRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / centerY * 10;
+    const rotateY = (x - centerX) / centerX * 6;
+
+
     gsap.to(imgRef.current, {
-      rotateY: 8,
-      rotateX: 4,
+      rotateY: rotateY,
+      rotateX: rotateX,
       duration: 0.4,
       ease: 'power2.out'
     });
@@ -45,18 +54,18 @@ const Landing: React.FC = () => {
   return (
     <div
       ref={container}
-      className="w-full h-screen bg-black flex items-center justify-center"
+      className="w-full h-screen flex items-center justify-center"
       style={{ perspective: '1000px' }}
     >
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
 
       <img
         ref={imgRef}
-        src={Infotsav2025LandingPage}
+        src="/src/assets/2025/LandingPage/HeroText.svg"
         alt="Infotsav 2025"
         className="neon-img cursor-default z-50"
         style={{
-          width: '400px',       // <- increased from 320px to 400px
+          width: '750px',       // <- increased from 320px to 400px
           maxWidth: '90vw',     // still responsive
           transformStyle: 'preserve-3d'
         }}
