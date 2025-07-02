@@ -1,8 +1,9 @@
 // import React from 'react'
 // import ComingSoon from '../Components/ComingSoon'
 
+import { FlagshipEventsCarousel } from "@/Components/Events/FlagshipEventsCarousel";
 import SideDock from "@/Components/Events/SideDock";
-import MajorEvent from "../Components/Events/MajorEvent";
+// import MajorEvent from "../Components/Events/MajorEvent";
 // import ParticlesBackground from "../Components/ParticlesBackground";
 
 
@@ -14,7 +15,7 @@ function Events() {
         {/* <ParticlesBackground /> */}
         <SideDock/>
         <section className="flex-1 flex items-start justify-center pt-20">
-          <MajorEvent />
+          <FlagshipEventsCarousel />
         </section>
 
       </main>

@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import flagshipEvents from "../../constants/EventData/FlagShipEvents.json";
+import { FlagshipEventCard } from "./FlagshipEventCard";
 
 // Define the event type
 interface FlagshipEvent {
@@ -9,13 +10,19 @@ interface FlagshipEvent {
   category: string;
   about: string;
   img?: string;
-  [key: string]: any;
+  prize?: string;
+  date?: string;
+  fee?: number;
+  contact?: Array<{
+    name: string;
+    phone: string;
+    email: string;
+  }>;
+  description?: {
+    overview: string;
+    rules: Record<string, unknown>;
+  };
 }
-
-// Extract images from flagship events, filtering out any undefined images
-const imgs = (flagshipEvents as FlagshipEvent[])
-  .map((event) => event.img)
-  .filter((img): img is string => img !== undefined);
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 5;
@@ -27,15 +34,17 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-export const FeaturedCarousel = () => {
-  const [imgIndex, setImgIndex] = useState(0);
+export const FlagshipEventsCarousel = () => {
+  const [eventIndex, setEventIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  
+  const events = flagshipEvents as FlagshipEvent[];
 
   useEffect(() => {
     const intervalRef = setInterval(() => {
       if (!isHovered) {
-        setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
+        setEventIndex((pv) => {
+          if (pv === events.length - 1) {
             return 0;
           }
           return pv + 1;
@@ -44,7 +53,7 @@ export const FeaturedCarousel = () => {
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, [isHovered]);
+  }, [isHovered, events.length]);
 
   return (
     <div 
@@ -55,38 +64,31 @@ export const FeaturedCarousel = () => {
       <div className="relative w-full h-full">
         <motion.div
           animate={{
-            translateX: `-${imgIndex * 100}%`,
+            translateX: `-${eventIndex * 100}%`,
           }}
           transition={SPRING_OPTIONS}
           className="flex w-full h-full"
         >
-          <Images imgIndex={imgIndex} />
+          <EventCards eventIndex={eventIndex} events={events} />
         </motion.div>
       </div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
+      <Dots eventIndex={eventIndex} setEventIndex={setEventIndex} events={events} />
     </div>
   );
 };
 
-const Images = ({ imgIndex }: { imgIndex: number }) => {
+const EventCards = ({ eventIndex, events }: { eventIndex: number; events: FlagshipEvent[] }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
+      {events.map((event, idx) => {
         return (
-          <motion.div
-            key={idx}
-            style={{
-              backgroundImage: `url(${imgSrc})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            animate={{
-              scale: imgIndex === idx ? 0.95 : 0.85,
-            }}
-            transition={SPRING_OPTIONS}
-            className="aspect-video w-full h-full shrink-0 rounded-xl bg-neutral-800 object-cover"
-          />
+          <div key={event.id} className="w-full h-full shrink-0">
+            <FlagshipEventCard 
+              event={event} 
+              isActive={eventIndex === idx}
+            />
+          </div>
         );
       })}
     </>
@@ -94,21 +96,23 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
 };
 
 const Dots = ({
-  imgIndex,
-  setImgIndex,
+  eventIndex,
+  setEventIndex,
+  events,
 }: {
-  imgIndex: number;
-  setImgIndex: Dispatch<SetStateAction<number>>;
+  eventIndex: number;
+  setEventIndex: Dispatch<SetStateAction<number>>;
+  events: FlagshipEvent[];
 }) => {
   return (
     <div className="mt-2 flex w-full justify-center gap-1">
-      {imgs.map((_, idx) => {
+      {events.map((_, idx) => {
         return (
           <button
             key={idx}
-            onClick={() => setImgIndex(idx)}
+            onClick={() => setEventIndex(idx)}
             className={`h-2 w-2 rounded-full transition-colors ${
-              idx === imgIndex ? "bg-red-400" : "bg-red-800/50"
+              idx === eventIndex ? "bg-red-400" : "bg-red-800/50"
             }`}
           />
         );
@@ -116,4 +120,3 @@ const Dots = ({
     </div>
   );
 };
-
