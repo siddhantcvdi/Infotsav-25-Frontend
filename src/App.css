@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+body{
+  background-color: #02050f;
+  color: #fff;
+
+}
+
 html {
     overflow-x: hidden;
 }
@@ -39,11 +45,10 @@ background-size: cover;
     -webkit-text-stroke-color: #ff1100;
     text-shadow:
       0 0 4px #ff1100,
-      0 0 16px #ff1100,
-      0 0 32px rgba(255,17,0,0.6),
-      0 0 64px rgba(255,17,0,0.4);
+      0 0 8px #ff1100,
+      0 0 16px rgba(255,17,0,0.6),
+      0 0 32px rgba(255,17,0,0.4);
   }
-  
   /* For per‑letter transforms and GSAP control */
   .neon-letter {
     display: inline-block;
@@ -57,10 +62,8 @@ background-size: cover;
   /* Strong neon glow around the image */
 .neon-img {
     filter:
-      drop-shadow(0 0 8px #ff1100)
-      drop-shadow(0 0 16px #ff1100)
-      drop-shadow(0 0 32px rgba(255,17,0,0.6))
-      drop-shadow(0 0 64px rgba(255,17,0,0.4));
+    drop-shadow(0 0 3px #69140e)
+    drop-shadow(0 0 4px #88251d);
     will-change: transform, filter;
-  }
+}
   
