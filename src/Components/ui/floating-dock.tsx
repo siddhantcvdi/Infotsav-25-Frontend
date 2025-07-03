@@ -203,10 +203,10 @@ function IconContainer({
     <a href={href}>
       <motion.div
         ref={ref}
-        style={{ width, height }}
+        style={{ width, height, borderRadius: '35%' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800 border border-neutral-600"
+        className="relative flex aspect-square items-center justify-center bg-neutral-800 border border-neutral-600"
       >
         <AnimatePresence>
           {hovered && (
@@ -214,17 +214,26 @@ function IconContainer({
               initial={{ 
                 opacity: 0, 
                 y: isVertical ? 0 : 10, 
-                x: isVertical ? 10 : "-50%" 
+                x: isVertical ? -10 : "-50%",
+                scale: 0.8
               }}
               animate={{ 
                 opacity: 1, 
                 y: isVertical ? 0 : 0, 
-                x: isVertical ? 0 : "-50%" 
+                x: isVertical ? 0 : "-50%",
+                scale: 1
               }}
               exit={{ 
                 opacity: 0, 
-                y: isVertical ? 0 : 2, 
-                x: isVertical ? 10 : "-50%" 
+                y: isVertical ? 0 : 5, 
+                x: isVertical ? -10 : "-50%",
+                scale: 0.8
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                duration: 0.3
               }}
               className={cn(
                 "absolute w-fit rounded-xl border border-neutral-600 bg-neutral-800 px-3 py-1 text-xs whitespace-nowrap text-white shadow-lg",
