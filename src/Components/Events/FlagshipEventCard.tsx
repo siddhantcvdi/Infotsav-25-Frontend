@@ -32,7 +32,7 @@ export const FlagshipEventCard = ({ event, isActive }: FlagshipEventCardProps) =
   return (
     <motion.div
       animate={{
-        scale: isActive ? 0.95 : 0.85,
+        scale: isActive ? 1.0 : 0.97,
       }}
       transition={{
         type: "spring",

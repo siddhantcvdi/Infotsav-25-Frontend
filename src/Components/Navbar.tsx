@@ -11,7 +11,7 @@ function Navbar() {
 
     return (
         <nav className="absolute top-0 left-0 right-0 z-30 p-8">
-        <div className="bg-gradient-to-r from-red-900/30 via-red-800/20 to-red-900/30 backdrop-blur-md rounded-2xl border border-red-700/40 shadow-2xl px-10 py-4 mx-auto max-w-6xl">
+        <div className="bg-gradient-to-r from-red-900/30 via-red-800/20 to-red-900/30 backdrop-blur-md rounded-2xl border border-red-700/40 shadow-2xl px-10 py-4 mx-auto max-w-7xl">
             <div className="flex items-center justify-between">
             <div className="flex items-center space-x-10">
                 <NavItem icon={<img src={logo} alt="" className="w-7 h-7"/>} to="/" className={homeClassName} text="INFOTSAV" />
