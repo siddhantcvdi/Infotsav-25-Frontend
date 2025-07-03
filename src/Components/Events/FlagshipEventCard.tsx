@@ -37,7 +37,7 @@ export const FlagshipEventCard = ({ event, isActive }: FlagshipEventCardProps) =
         stiffness: 400,
         damping: 50,
       }}
-      className="relative aspect-video w-full h-full shrink-0 rounded-xl bg-neutral-800 object-cover overflow-hidden shadow-lg border border-gray-700"
+      className="relative aspect-[4/3] w-full h-full shrink-0 rounded-xl bg-neutral-800 object-cover overflow-hidden shadow-lg border border-gray-700"
     >
       {/* Background Image */}
       {event.img ? (

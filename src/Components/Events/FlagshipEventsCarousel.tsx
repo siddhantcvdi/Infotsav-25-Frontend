@@ -57,7 +57,7 @@ export const FlagshipEventsCarousel = () => {
 
   return (
     <div 
-      className="relative overflow-hidden pb-4 pt-8 h-[50vh] flex flex-col justify-start items-center max-w-7xl mx-auto"
+      className="relative overflow-hidden pb-4 pt-8 h-[70vh] flex flex-col justify-start items-center max-w-7xl mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
