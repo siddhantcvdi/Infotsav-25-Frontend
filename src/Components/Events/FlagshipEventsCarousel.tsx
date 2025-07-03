@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useCallback } from "react";
+import { motion, useAnimation } from "framer-motion";
 import flagshipEvents from "../../constants/EventData/FlagShipEvents.json";
 import { FlagshipEventCard } from "./FlagshipEventCard";
 
@@ -27,66 +27,136 @@ interface FlagshipEvent {
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 5;
 
-const SPRING_OPTIONS = {
-  type: "spring" as const,
-  mass: 3,
-  stiffness: 400,
-  damping: 50,
+const SMOOTH_TRANSITION = {
+  type: "tween" as const,
+  duration: 0.4,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 };
 
 export const FlagshipEventsCarousel = () => {
-  const [eventIndex, setEventIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const controls = useAnimation();
   
   const events = flagshipEvents as FlagshipEvent[];
+  
+  // Create extended array with duplicates for infinite effect
+  const extendedEvents = [...events, ...events, ...events];
+  const startIndex = events.length; // Start from the middle set
 
-  useEffect(() => {
-    const intervalRef = setInterval(() => {
-      if (!isHovered) {
-        setEventIndex((pv) => {
-          if (pv === events.length - 1) {
-            return 0;
-          }
-          return pv + 1;
+  const moveToNext = useCallback(async () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    const nextIndex = currentIndex + 1;
+    
+    // Animate to the next position
+    await controls.start({
+      translateX: `-${nextIndex * 100}%`,
+    }, SMOOTH_TRANSITION);
+    
+    // Check if we need to reset position seamlessly
+    if (nextIndex >= startIndex + events.length) {
+      // Small delay to ensure animation is complete
+      setTimeout(() => {
+        // Instantly reset to the start of the middle set without animation
+        controls.set({
+          translateX: `-${startIndex * 100}%`,
         });
-      }
+        setCurrentIndex(startIndex);
+        setIsTransitioning(false);
+      }, 50);
+    } else {
+      setCurrentIndex(nextIndex);
+      setIsTransitioning(false);
+    }
+  }, [controls, currentIndex, events.length, startIndex, isTransitioning]);
+
+  const jumpToIndex = useCallback(async (targetIndex: number) => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    const actualIndex = startIndex + targetIndex;
+    
+    // Animate to the target position
+    await controls.start({
+      translateX: `-${actualIndex * 100}%`,
+    }, SMOOTH_TRANSITION);
+    
+    setCurrentIndex(actualIndex);
+    setIsTransitioning(false);
+  }, [controls, startIndex, isTransitioning]);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (isHovered || isTransitioning) return;
+    
+    const intervalRef = setInterval(() => {
+      moveToNext();
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, [isHovered, events.length]);
+  }, [isHovered, isTransitioning, moveToNext]);
+
+  // Initialize position
+  useEffect(() => {
+    const initializeCarousel = async () => {
+      // Set initial position without animation
+      await controls.set({
+        translateX: `-${startIndex * 100}%`,
+      });
+      setCurrentIndex(startIndex);
+    };
+    
+    initializeCarousel();
+  }, [controls, startIndex]);
+
+  // Get the current active event index for dots
+  const activeEventIndex = (currentIndex - startIndex + events.length) % events.length;
 
   return (
     <div 
-      className="relative overflow-hidden pb-4 pt-8 h-[50vh] flex flex-col justify-start items-center max-w-7xl mx-auto"
+      className="relative overflow-hidden pb-4 pt-10 h-[70vh] flex flex-col justify-start items-center max-w-[76rem] mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative w-full h-full">
         <motion.div
-          animate={{
-            translateX: `-${eventIndex * 100}%`,
-          }}
-          transition={SPRING_OPTIONS}
+          animate={controls}
           className="flex w-full h-full"
         >
-          <EventCards eventIndex={eventIndex} events={events} />
+          <EventCards events={extendedEvents} currentIndex={currentIndex} />
         </motion.div>
       </div>
 
-      <Dots eventIndex={eventIndex} setEventIndex={setEventIndex} events={events} />
+      <Dots 
+        activeIndex={activeEventIndex} 
+        onDotClick={jumpToIndex} 
+        events={events} 
+      />
     </div>
   );
 };
 
-const EventCards = ({ eventIndex, events }: { eventIndex: number; events: FlagshipEvent[] }) => {
+const EventCards = ({ 
+  events, 
+  currentIndex
+}: { 
+  events: FlagshipEvent[]; 
+  currentIndex: number;
+}) => {
   return (
     <>
       {events.map((event, idx) => {
+        // Calculate if this card should be active (visible in viewport)
+        const isActive = idx === currentIndex;
+        
         return (
-          <div key={event.id} className="w-full h-full shrink-0">
+          <div key={`${event.id}-${Math.floor(idx / (events.length / 3))}`} className="w-full h-full shrink-0">
             <FlagshipEventCard 
               event={event} 
-              isActive={eventIndex === idx}
+              isActive={isActive}
             />
           </div>
         );
@@ -96,12 +166,12 @@ const EventCards = ({ eventIndex, events }: { eventIndex: number; events: Flagsh
 };
 
 const Dots = ({
-  eventIndex,
-  setEventIndex,
+  activeIndex,
+  onDotClick,
   events,
 }: {
-  eventIndex: number;
-  setEventIndex: Dispatch<SetStateAction<number>>;
+  activeIndex: number;
+  onDotClick: (targetIndex: number) => Promise<void>;
   events: FlagshipEvent[];
 }) => {
   return (
@@ -110,9 +180,9 @@ const Dots = ({
         return (
           <button
             key={idx}
-            onClick={() => setEventIndex(idx)}
+            onClick={() => onDotClick(idx)}
             className={`h-2 w-2 rounded-full transition-colors ${
-              idx === eventIndex ? "bg-red-400" : "bg-red-800/50"
+              idx === activeIndex ? "bg-red-400" : "bg-red-800/50"
             }`}
           />
         );
