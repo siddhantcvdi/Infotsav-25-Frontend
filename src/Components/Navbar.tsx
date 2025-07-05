@@ -31,7 +31,7 @@ function Navbar() {
             <NavItem
               icon={<Handshake className="w-4 h-4" />}
               to="/campus-ambassador"
-              text="CAMPUS AMBASSADOR"
+              text="CA Program"
             />
             <NavItem
               icon={<Users className="w-4 h-4" />}
