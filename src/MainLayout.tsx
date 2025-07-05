@@ -1,12 +1,14 @@
 // import React from 'react';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { Stars } from "@react-three/drei";
 import FogBackground from './Components/FogBackground';
 
 const MainLayout = () => {
+    const location = useLocation();
+    const hideFooter = location.pathname === '/contact';
 
     return (
         
@@ -22,7 +24,7 @@ const MainLayout = () => {
             <main>
                 <Outlet />
             </main>
-            <Footer />
+            {!hideFooter && <Footer />}
         </div>
     );
 };
