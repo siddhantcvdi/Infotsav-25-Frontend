@@ -9,6 +9,7 @@ import NotFound from "./Pages/NotFound";
 
 import "./App.css";
 import CampusAmba from "./Pages/CampusAmba";
+import ContactUs from "./Pages/ContactUs";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
-          <Route path="/contact" element={<Home />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/events" element={<Events />} />
           <Route path="/eventdetails/:category/:id" element={<Home />} />
           <Route path="/register" element={<Home />} />
