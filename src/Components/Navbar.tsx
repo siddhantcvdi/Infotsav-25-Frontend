@@ -47,8 +47,8 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
-            <div className="flex items-center space-x-10">
+          <div className="hidden md:flex items-center flex-1 justify-between">
+            <div className="flex ml-10 space-x-10">
               <NavItem
                 icon={<Calendar className="w-4 h-4" />}
                 to="/events"
@@ -57,7 +57,7 @@ const Navbar = () => {
               <NavItem
                 icon={<Handshake className="w-4 h-4" />}
                 to="/campus-ambassador"
-                text="CA Program"
+                text="CA PROGRAM"
               />
               <NavItem
                 icon={<Users className="w-4 h-4" />}
@@ -65,11 +65,12 @@ const Navbar = () => {
                 text="SPONSORS"
               />
             </div>
-            <div className="flex items-center space-x-10">
+            <div className="flex items-center space-x-10 ml-auto">
               <NavItem
                 to="/register"
                 icon={<Calendar className="w-4 h-4" />}
                 text="REGISTER"
+                highlight
               />
               <NavItem
                 icon={<Mail className="w-4 h-4" />}
@@ -120,7 +121,7 @@ const Navbar = () => {
               <NavItem
                 icon={<Handshake className="w-8 h-8" />}
                 to="/campus-ambassador"
-                text="CA Program"
+                text="CA PROGRAM"
                 className="flex items-center gap-4 text-white text-2xl font-semibold py-3 px-8 rounded-lg hover:bg-red-800/40 transition"
                 onClick={() => setIsMobileMenuOpen(false)}
               />
