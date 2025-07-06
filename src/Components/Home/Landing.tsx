@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 // import ParticlesBackground from '../ParticlesBackground';
 import { gsap } from 'gsap';
 
-
 const Landing: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
   const imgRef    = useRef<HTMLImageElement>(null);
@@ -21,7 +20,7 @@ const Landing: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  const onMouseEnter = (e) => {
+  const onMouseEnter = (e: React.MouseEvent<HTMLImageElement>) => {
     if (!imgRef.current) return;
     const rect = imgRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;

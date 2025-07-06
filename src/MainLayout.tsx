@@ -1,17 +1,38 @@
-// import React from 'react';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { Stars } from "@react-three/drei";
 import FogBackground from './Components/FogBackground';
+import { ReactLenis } from 'lenis/react';
+import Lenis from 'lenis';
+import { useEffect } from 'react';
 
 const MainLayout = () => {
     const location = useLocation();
     const hideFooter = location.pathname === '/contact';
+    const isHomePage = location.pathname === '/' || location.pathname === '/about';
+
+    useEffect(() => {
+        if (isHomePage) {
+            const lenis = new Lenis({
+                lerp: 0.04,
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            });
+
+            lenis.on('scroll', (e) => {
+                document.documentElement.style.scrollBehavior = 'auto';
+                window.scrollTo(0, Math.round(lenis.scroll));
+            });
+
+            return () => {
+                lenis.destroy();
+            };
+        }
+    }, [location.pathname]);
 
     return (
-        
         <div className='overflow-hidden'>
             <div className="fixed inset-0 -z-20">
                 <Canvas>
@@ -21,8 +42,18 @@ const MainLayout = () => {
             <FogBackground />
 
             <Navbar />
-            <main>
-                <Outlet />
+            <main className="min-h-screen flex flex-col">
+                {isHomePage ? (
+                    <ReactLenis root options={{ lerp: 0.04 }}>
+                        <div className="flex-grow">
+                            <Outlet />
+                        </div>
+                    </ReactLenis>
+                ) : (
+                    <div className="flex-grow">
+                        <Outlet />
+                    </div>
+                )}
             </main>
             {!hideFooter && <Footer />}
         </div>
