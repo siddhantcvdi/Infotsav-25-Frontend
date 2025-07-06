@@ -1,0 +1,196 @@
+[
+    {
+        "id": 1,
+        "name": "Cultural Event",
+        "category": "Cultural",
+        "about": "A flagship hackathon challenging coders to solve real-life problems by developing innovative websites, apps, or desktop solutions.",
+        "fee": 0,
+        "date": "2024-10-18",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1724521794/Hackathon_sx1laa.png",
+        "url": "",
+        "prize": "65k",
+        "contact": [
+            {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Kunal Vardani",
+                "phone": "9929646997",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Hackatron is one of our flagship hackathon events...",
+            "rules": {
+                "regionals": {
+                    "overview": "Preliminary round where teams submit a project summary.",
+                    "entry_rules": [
+                        "No registration fees will be charged.",
+                        "Teams must submit a one-page project summary...",
+                        "The judges' decision is final and binding."
+                    ]
+                },
+                "onsite": {
+                    "overview": "Final 36-hour round held at ABV-IIITM for selected teams.",
+                    "entry_rules": [
+                        "A nominal fee will be charged per team for the Onsite round.",
+                        "By participating, participants agree that the Hackatron organizers..."
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "Techathalon",
+        "category": "Cultural",
+        "about": "Techathlon is a fast-paced, multi-round competition that pushes participants to demonstrate their coding prowess across diverse and challenging tasks. It is designed for skilled coders, software programmers, and developers who are eager to test their debugging, code optimization, and teamwork abilities. Techathlon consists of three sub-events: Bugspot, Code Golf Challenge, and Code-Relay. Each event highlights different aspects of coding expertise, from bug fixing to code brevity and collaborative problem-solving.",
+        "fee": 0,
+        "date": "2024-10-18",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1725828351/Techathalon_enfyoo.jpg",
+        "url": "https://mstats.dare2compete.com/CL0/https:%2F%2Funstop.com%2Fp%2Ftechathalon-infotsav24-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-abv-iiitm-gwalio-1150235%3Futm_campaign=site-emails%26utm_medium=d2c-automated%26utm_source=opportunity-approved/1/01090191cdcbb522-08da545c-51c4-4335-9d53-426abdaf6283-000000/YqMiPmPx2xNmEo-c7Wwxqh3lFQtmVfso_EITewfbxN8=171",
+        "prize": "70k",
+        "contact": [
+            {
+                "name": "Hiren Sharma",
+                "phone": "+91-9154644088",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Aditya Karki",
+                "phone": "+91-8076469828",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description":{
+            "overview":"Techathlon is a fast-paced, multi-round competition that pushes participants to demonstrate their coding prowess across diverse and challenging tasks. It is designed for skilled coders, software programmers, and developers who are eager to test their debugging, code optimization, and teamwork abilities. Techathlon consists of three sub-events: Bugspot, Code Golf Challenge, and Code-Relay. Each event highlights different aspects of coding expertise, from bug fixing to code brevity and collaborative problem-solving."
+        }
+    },
+    {
+        "id": 3,
+        "name": "Code Rush",
+        "category": "Cultural",
+        "about": "A high-intensity coding contest testing participants logic, math, and algorithmic skills through complex problem statements.",
+        "fee": 0,
+        "date": "2024-10-18",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1724520652/code_rush_cz4nxz.png",
+        "url": "https://unstop.com/hackathons/techathalon-infotsav24-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-abv-iii-1152392",
+        "prize": "40k",
+        "contact": [
+            {
+                "name": "Ayush Shah",
+                "phone": "6002969689",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Rishabh Agarwal",
+                "phone": "9163430474",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Code Rush is a challenging coding contest that tests participants skills...",
+            "objective": "Write a program to solve the given problem statements...",
+            "team_composition": {
+                "team_size": "Each team can have up to 3 members.",
+                "eligibility": [
+                    "A team must have at least 2 members to be eligible for qualifying...",
+                    "Teams can be formed across different departments and years."
+                ]
+            },
+            "conduct": [
+                "Use of any unfair means will lead to disqualification.",
+                "Participants must reach the venue well before the scheduled time."
+            ],
+            "scoring_and_ranking": {
+                "criteria": [
+                    "Number of Problems Solved: Teams are first ranked by the number of problems they have solved...",
+                    "Time of Last Problem Solved: If teams are still tied..."
+                ]
+            }
+        }
+    },
+    {
+        "id": 4,
+        "name": "Ideathon",
+        "category": "Cultural",
+        "about": "A dynamic team-based event challenging participants to solve complex problems through innovation and creativity.",
+        "fee": 0,
+        "date": "2024-10-18",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1724521794/ideathon_lk0rsl.png",
+        "url": "https://unstop.com/competitions/ideathon-infotsav24-atal-bihari-vajpayee-indian-institute-of-information-technology-and-management-1150253",
+        "prize": "15k",
+        "contact": [
+             {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Ideathon is a dynamic team-based event where participants...",
+            "objective": [
+                "Teams must analyze and develop a solution for the chosen problem statement...",
+                "The solution should be original, innovative, and practically feasible."
+            ],
+            "rules": {
+                "event_structure": [
+                    "Multiple problem statements will be provided...",
+                    "Shortlisted teams will be invited to present their solutions onsite at Infotsav."
+                ],
+                "participation": [
+                    "Teams must consist of 2-4 members.",
+                    "Teams must register before the event and adhere to the submission deadlines."
+                ],
+                "conduct": [
+                    "Any use of unfair means or plagiarism will result in immediate disqualification."
+                ]
+            }
+        }
+    },
+    {
+        "id": 5,
+        "name": "Capture the Flag (CTF)",
+        "category": "Cultural",
+        "about": "An online cybersecurity competition where participants solve challenges to capture flags and accumulate points.",
+        "fee": 0,
+        "date": "2024-10-20",
+        "img": "https://res.cloudinary.com/dih6gwkau/image/upload/v1724520859/CTF2_fneba5.png",
+        "url": "",
+        "prize": "15k",
+        "contact": [
+            {
+                "name": "Uajjawal Sharma",
+                "phone": "8769445541",
+                "email": "infotsav@iiitm.ac.in"
+            },
+            {
+                "name": "Rohit Kumawat",
+                "phone": "9130660628",
+                "email": "infotsav@iiitm.ac.in"
+            }
+        ],
+        "description": {
+            "overview": "Capture the Flag (CTF) is a thrilling online event designed for cybersecurity enthusiasts...",
+            "objective": [
+                "Solve challenges to find and capture hidden flags.",
+                "Accumulate the highest points in the shortest amount of time."
+            ],
+            "rules": {
+                "event_structure": [
+                    "The CTF will be hosted on an online platform...",
+                    "The goal is to capture as many flags as possible..."
+                ],
+                "participation": [
+                    "Participants must register before the deadline.",
+                    "Participants must ensure a stable internet connection..."
+                ],
+                "conduct": [
+                    "Sharing flags with others will lead to immediate disqualification."
+                ]
+            }
+        }
+    }
+]

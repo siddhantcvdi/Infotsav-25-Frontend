@@ -29,5 +29,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": [
+    "src",            // existing TypeScript source files
+    "src/**/*.json"    // ensure JSON data files are part of the project
+  ]
 }

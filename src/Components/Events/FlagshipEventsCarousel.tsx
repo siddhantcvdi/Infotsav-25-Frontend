@@ -33,17 +33,17 @@ const SMOOTH_TRANSITION = {
   ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
 };
 
-export const FlagshipEventsCarousel = () => {
+export const FlagshipEventsCarousel = ({currentSection}: {currentSection: string}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const controls = useAnimation();
+  console.log("CurrentSection Selected is --> ",currentSection);
   
   const events = flagshipEvents as FlagshipEvent[];
   
-  // Create extended array with duplicates for infinite effect
   const extendedEvents = [...events, ...events, ...events];
-  const startIndex = events.length; // Start from the middle set
+  const startIndex = events.length; 
 
   const moveToNext = useCallback(async () => {
     if (isTransitioning) return;
@@ -51,16 +51,12 @@ export const FlagshipEventsCarousel = () => {
     setIsTransitioning(true);
     const nextIndex = currentIndex + 1;
     
-    // Animate to the next position
     await controls.start({
       translateX: `-${nextIndex * 100}%`,
     }, SMOOTH_TRANSITION);
     
-    // Check if we need to reset position seamlessly
     if (nextIndex >= startIndex + events.length) {
-      // Small delay to ensure animation is complete
       setTimeout(() => {
-        // Instantly reset to the start of the middle set without animation
         controls.set({
           translateX: `-${startIndex * 100}%`,
         });
@@ -79,7 +75,6 @@ export const FlagshipEventsCarousel = () => {
     setIsTransitioning(true);
     const actualIndex = startIndex + targetIndex;
     
-    // Animate to the target position
     await controls.start({
       translateX: `-${actualIndex * 100}%`,
     }, SMOOTH_TRANSITION);
@@ -88,7 +83,6 @@ export const FlagshipEventsCarousel = () => {
     setIsTransitioning(false);
   }, [controls, startIndex, isTransitioning]);
 
-  // Auto-advance carousel
   useEffect(() => {
     if (isHovered || isTransitioning) return;
     
@@ -99,10 +93,8 @@ export const FlagshipEventsCarousel = () => {
     return () => clearInterval(intervalRef);
   }, [isHovered, isTransitioning, moveToNext]);
 
-  // Initialize position
   useEffect(() => {
     const initializeCarousel = async () => {
-      // Set initial position without animation
       await controls.set({
         translateX: `-${startIndex * 100}%`,
       });
@@ -112,7 +104,6 @@ export const FlagshipEventsCarousel = () => {
     initializeCarousel();
   }, [controls, startIndex]);
 
-  // Get the current active event index for dots
   const activeEventIndex = (currentIndex - startIndex + events.length) % events.length;
 
   return (
@@ -149,7 +140,6 @@ const EventCards = ({
   return (
     <>
       {events.map((event, idx) => {
-        // Calculate if this card should be active (visible in viewport)
         const isActive = idx === currentIndex;
         
         return (

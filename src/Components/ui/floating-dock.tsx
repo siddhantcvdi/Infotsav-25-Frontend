@@ -16,16 +16,18 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
   orientation = "horizontal",
+  onItemClick,
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
   orientation?: "horizontal" | "vertical";
+  onItemClick?: (item: { title: string; icon: React.ReactNode; href: string }) => void;
 }) => {
   return (
     <>
-      <FloatingDockDesktop items={items} className={desktopClassName} orientation={orientation} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockDesktop items={items} className={desktopClassName} orientation={orientation} onItemClick={onItemClick} />
+      <FloatingDockMobile items={items} className={mobileClassName} onItemClick={onItemClick} />
     </>
   );
 };
@@ -33,9 +35,11 @@ export const FloatingDock = ({
 const FloatingDockMobile = ({
   items,
   className,
+  onItemClick,
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
+  onItemClick?: (item: { title: string; icon: React.ReactNode; href: string }) => void;
 }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -67,6 +71,7 @@ const FloatingDockMobile = ({
                   href={item.href}
                   key={item.title}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
+                  onClick={() => onItemClick?.(item)}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
@@ -89,10 +94,12 @@ const FloatingDockDesktop = ({
   items,
   className,
   orientation = "horizontal",
+  onItemClick,
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
   orientation?: "horizontal" | "vertical";
+  onItemClick?: (item: { title: string; icon: React.ReactNode; href: string }) => void;
 }) => {
   const mouseX = useMotionValue(Infinity);
   const mouseY = useMotionValue(Infinity);
@@ -129,6 +136,7 @@ const FloatingDockDesktop = ({
           key={item.title} 
           orientation={orientation}
           {...item} 
+          onItemClick={onItemClick}
         />
       ))}
     </motion.div>
@@ -142,6 +150,7 @@ function IconContainer({
   icon,
   href,
   orientation = "horizontal",
+  onItemClick,
 }: {
   mouseX: MotionValue;
   mouseY?: MotionValue;
@@ -149,6 +158,7 @@ function IconContainer({
   icon: React.ReactNode;
   href: string;
   orientation?: "horizontal" | "vertical";
+  onItemClick?: (item: { title: string; icon: React.ReactNode; href: string }) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -200,7 +210,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <a href={href} onClick={() => onItemClick?.({ title, icon, href })}>
       <motion.div
         ref={ref}
         style={{ width, height, borderRadius: '35%' }}

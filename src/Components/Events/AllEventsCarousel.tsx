@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import technicalEvents from "../../constants/EventData/TechnicalEvents.json";
+import managerialEvents from "../../constants/EventData/ManagerialEvents.json";
+import roboticsEvents from "../../constants/EventData/RoboticsEvents.json";
+import culturalEvents from "../../constants/EventData/CulturalEvents.json";
 import { MinorEventCard } from "./EventCard";
 
 // Define the event type
@@ -22,13 +25,26 @@ interface Event {
 
 const VISIBLE_ITEMS = 3; // Number of items visible at once
 
-export const AllEventsCarousel = () => {
+// Map each section to its corresponding events dataset – hoisted outside the component so
+// it has a stable reference and doesn't need to be included in React Hook deps.
+const sectionEventsMap: Record<string, Event[]> = {
+  technical: technicalEvents as Event[],
+  managerial: managerialEvents as Event[],
+  robotics: roboticsEvents as Event[],
+  cultural: culturalEvents as Event[],
+};
+
+export const AllEventsCarousel = ({currentSection}: {currentSection: string}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const controls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const events = technicalEvents as Event[];
+  const [events,setEvents] = useState<Event[]>([]);
+  useEffect(() => {
+    setEvents((sectionEventsMap[currentSection] ?? technicalEvents) as Event[]);
+  }, [currentSection]);
+  
   
   // Create extended array with duplicates for infinite effect
   const extendedEvents = [...events, ...events, ...events];
@@ -124,7 +140,9 @@ export const AllEventsCarousel = () => {
     <div className="max-w-[76rem] mx-auto">
       {/* Heading */}
       <div className="px-4">
-        <h2 className="text-3xl font-bold text-white">Technical Events</h2>
+        <h2 className="text-3xl font-bold text-white">
+          {`${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} Events`}
+        </h2>
       </div>
       
       <div 

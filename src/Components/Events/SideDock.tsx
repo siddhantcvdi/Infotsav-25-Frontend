@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 import { FloatingDock } from "../ui/floating-dock";
 
-const SideDock = () => {
+const SideDock = ({setCurrentSection}: {setCurrentSection: (section: string) => void}) => {
   const links = [
     {
       title: "Technical",
@@ -44,6 +44,7 @@ const SideDock = () => {
         mobileClassName="translate-y-20"
         items={links}
         orientation="vertical"
+        onItemClick={(item: { title: string; icon: React.ReactNode; href: string }) => setCurrentSection(item.title.toLowerCase())}
       />
     </div>
   );
