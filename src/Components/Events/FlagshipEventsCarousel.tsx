@@ -108,7 +108,7 @@ export const FlagshipEventsCarousel = ({currentSection}: {currentSection: string
 
   return (
     <div 
-      className="relative overflow-hidden pb-4 pt-10 h-[70vh] flex flex-col justify-start items-center max-w-[76rem] mx-auto"
+      className="relative overflow-hidden pb-4 pt-10 h-[65vh] sm:h-[70vh] flex flex-col justify-start items-center w-full max-w-full md:max-w-[76rem] mx-auto px-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -143,7 +143,7 @@ const EventCards = ({
         const isActive = idx === currentIndex;
         
         return (
-          <div key={`${event.id}-${Math.floor(idx / (events.length / 3))}`} className="w-full h-full shrink-0">
+          <div key={`${event.id}-${Math.floor(idx / (events.length / 3))}`} className="w-full h-full shrink-0 px-1 sm:px-2">
             <FlagshipEventCard 
               event={event} 
               isActive={isActive}
