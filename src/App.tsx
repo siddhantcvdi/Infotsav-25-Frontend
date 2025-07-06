@@ -11,6 +11,7 @@ import NotFound from "./Pages/NotFound";
 import "./App.css";
 import CampusAmba from "./Pages/CampusAmba";
 import ContactUs from "./Pages/ContactUs";
+import React from "react";
 
 function App() {
   return (

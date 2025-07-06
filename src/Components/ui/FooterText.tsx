@@ -1,4 +1,6 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
+
 
 type TextPressureProps = {
   text?: string;
@@ -162,7 +164,7 @@ const TextPressure = ({
 
   const dynamicClassName = [
     className,
-    flex ? "flex" : "",
+    flex ? "flex-footer-new" : "",
     stroke ? "stroke" : "",
   ]
     .filter(Boolean)
@@ -185,7 +187,7 @@ const TextPressure = ({
           font-style: normal;
         }
 
-        .flex {
+        .flex-footer-new {
           display: flex;
           justify-content: space-between;
         }
