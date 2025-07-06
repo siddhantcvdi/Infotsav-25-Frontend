@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Calendar, Handshake, Users, Menu, Mail, X } from "lucide-react";
 import NavItem from "./NavItem";
 import { useEffect, useState } from "react";
+import React from "react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
 
   const homeClassName = location.pathname === "/"
     ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1"
-    : "text-sm font-bold text-red-900/70 tracking-wider";
+    : "text-sm font-bold text-red-100 tracking-wider";
 
 
     useEffect(() => {
@@ -36,7 +37,6 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 right-0 z-30 p-8">
       <div className={`mx-auto max-w-7xl relative px-10 py-4 ${isMobileMenuOpen ? '' : 'bg-gradient-to-r from-red-900/30 via-red-800/20 to-red-900/30 backdrop-blur-md rounded-2xl border border-red-700/40 shadow-2xl'}`}>
         <div className="flex items-center justify-between">
-          {/* Logo and Infotsav */}
           <div className="flex items-center space-x-10">
             <NavItem
               icon={<img src="/src/assets/Logo.png" alt="INFOTSAV" className="w-7 h-7" />}
@@ -46,23 +46,25 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center flex-1 justify-between">
             <div className="flex ml-10 space-x-10">
               <NavItem
                 icon={<Calendar className="w-4 h-4" />}
                 to="/events"
+                className={location.pathname === "/events" ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1" : "text-sm font-bold text-red-100 tracking-wider"}
                 text="EVENTS"
               />
               <NavItem
                 icon={<Handshake className="w-4 h-4" />}
                 to="/campus-ambassador"
                 text="CA PROGRAM"
+                className={location.pathname === "/campus-ambassador" ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1" : "text-sm font-bold text-red-100 tracking-wider"}
               />
               <NavItem
                 icon={<Users className="w-4 h-4" />}
                 to="/sponsors"
                 text="SPONSORS"
+                className={location.pathname === "/sponsors" ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1" : "text-sm font-bold text-red-100 tracking-wider"}
               />
             </div>
             <div className="flex items-center space-x-10 ml-auto">
@@ -71,11 +73,13 @@ const Navbar = () => {
                 icon={<Calendar className="w-4 h-4" />}
                 text="REGISTER"
                 highlight
+                className={location.pathname === "/register" ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1" : "text-sm font-bold text-red-100 tracking-wider"}
               />
               <NavItem
                 icon={<Mail className="w-4 h-4" />}
                 to="/contact"
                 text="CONTACT"
+                className={location.pathname === "/contact" ? "text-sm font-bold text-red-100 tracking-wider border-b-2 border-red-500 pb-1" : "text-sm font-bold text-red-100 tracking-wider"}
               />
             </div>
           </div>

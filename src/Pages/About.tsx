@@ -1,12 +1,7 @@
-// import React from 'react'
-// import ParticlesBackground from "../Components/ParticlesBackground"
-
-function About() {
+export default function About() {
   return (
-
     <div className="max-w-7xl mt-[100px] mx-auto">
 
-      {/* <div className="absolute -z-10"><ParticlesBackground /></div> */}
       <h1 className="scroll-m-20 text-[#FEFEFE] text-[16vw] md:text-[9vw] tracking-tight text-center font-pixelify mb-5 md:mb-0">
         About Us
       </h1>
@@ -53,4 +48,4 @@ function About() {
   )
 }
 
-export default About
+
