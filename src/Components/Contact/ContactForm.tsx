@@ -44,7 +44,7 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium mb-2">Name</label>
+                        {/* <label className="block text-sm font-medium mb-2">Name</label> */}
                         <input
                             type="text"
                             name="name"
@@ -52,11 +52,11 @@ const ContactForm = () => {
                             onChange={handleInputChange}
                             required
                             className="w-full px-4 py-3 bg-transparent border border-white/20 rounded-xl focus:border-red-500 focus:outline-none transition-all duration-300 hover:shadow-[inset_0_0_20px_rgba(239,68,68,0.3)] focus:shadow-[inset_0_0_30px_rgba(239,68,68,0.5)]"
-                            placeholder="Your Name"
+                            placeholder="Name"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium mb-2">Email</label>
+                        {/* <label className="block text-sm font-medium mb-2">Email</label> */}
                         <input
                             type="email"
                             name="email"
@@ -64,12 +64,12 @@ const ContactForm = () => {
                             onChange={handleInputChange}
                             required
                             className="w-full px-4 py-3 bg-transparent border border-white/20 rounded-xl focus:border-red-500 focus:outline-none transition-all duration-300 hover:shadow-[inset_0_0_20px_rgba(239,68,68,0.3)] focus:shadow-[inset_0_0_30px_rgba(239,68,68,0.5)]"
-                            placeholder="your.email@example.com"
+                            placeholder="Email"
                         />
                     </div>
                 </div>
                 <div>
-                    <label className="block text-sm font-medium mb-2">Subject</label>
+                    {/* <label className="block text-sm font-medium mb-2">Subject</label> */}
                     <input
                         type="text"
                         name="subject"
@@ -81,14 +81,14 @@ const ContactForm = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
+                    {/* <label className="block text-sm font-medium mb-2">Message</label> */}
                     <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         required
                         rows={6}
-                        className="w-full px-4 py-3 bg-transparent border border-white/20 rounded-xl focus:border-red-500 focus:outline-none transition-all duration-300 resize-none hover:shadow-[inset_0_0_20px_rgba(239,68,68,0.3)] focus:shadow-[inset_0_0_30px_rgba(239,68,68,0.5)]"
+                        className="w-full px-4 py-3 bg-transparent border border-white/20 rounded-xl focus:border-red-500 focus:outline-none transition-all duration-300 resize-none hover:shadow-[inset_0_0_20px_rgba(239,68,68,0.3)] focus:shadow-[inset_0_0_30px_rgba(239,68,68,0.5)] h-48"
                         placeholder="Tell us more about your inquiry..."
                     />
                 </div>

@@ -21,7 +21,7 @@ const MainLayout = () => {
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
             });
 
-            lenis.on('scroll', (e) => {
+            lenis.on('scroll', () => {
                 document.documentElement.style.scrollBehavior = 'auto';
                 window.scrollTo(0, Math.round(lenis.scroll));
             });
