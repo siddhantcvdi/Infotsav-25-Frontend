@@ -20,6 +20,7 @@ const MainLayout = () => {
                 duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
             });
+            window._lenix = lenis;
 
             lenis.on('scroll', (e) => {
                 document.documentElement.style.scrollBehavior = 'auto';
@@ -28,6 +29,7 @@ const MainLayout = () => {
 
             return () => {
                 lenis.destroy();
+                window._lenix = undefined;
             };
         }
     }, [location.pathname]);

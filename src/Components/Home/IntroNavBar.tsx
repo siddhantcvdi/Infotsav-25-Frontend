@@ -1,4 +1,4 @@
-// import React from 'react'
+
 import { useNavigate } from "react-router-dom"
 
 const IntroNavBar = () => {
@@ -6,6 +6,7 @@ const IntroNavBar = () => {
 
     return (
         <>
+        
             <div className="w-full flex flex-col gap-4 justify-center items-center relative top-0 left-0 pt-[30px]">
                 <div
                     className="bg-[#FFFFFF] h-[60px] z-30 w-[80vw] rounded-3xl border-4 border-black flex justify-between items-center px-20px menu-container"
@@ -21,14 +22,9 @@ const IntroNavBar = () => {
                             INTRO
                         </h1>
                     </div>
-
-
-
-
                 </div>
-
-
             </div>
+            
         </>
     )
 }
