@@ -22,7 +22,7 @@ const MainLayout = () => {
             });
             window._lenix = lenis;
 
-            lenis.on('scroll', (e) => {
+            lenis.on('scroll', () => {
                 document.documentElement.style.scrollBehavior = 'auto';
                 window.scrollTo(0, Math.round(lenis.scroll));
             });
